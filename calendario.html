@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calendario — Deportivo Resaka</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="wrapper">
+ 
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-escudo">DR</div>
+      <div class="brand-nombre">DEPORTIVO<br>RESAKA</div>
+      <div class="brand-sub">Sistema de Gestión</div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-seccion">Principal</div>
+      <a href="index.html"><span class="nav-icono">📊</span><span>Dashboard</span></a>
+      <a href="inventario.html"><span class="nav-icono">📦</span><span>Inventario</span></a>
+      <a href="perfil.html"><span class="nav-icono">👤</span><span>Ficha Jugador</span></a>
+      <a href="configuracion.html"><span class="nav-icono">⚙️</span><span>Configuración</span></a>
+      <div class="nav-seccion">Gestión</div>
+      <a href="calendario.html" class="activo"><span class="nav-icono">📅</span><span>Calendario</span></a>
+      <a href="reservas.html"><span class="nav-icono">🎟️</span><span>Reservas</span></a>
+      <a href="historial.html"><span class="nav-icono">📋</span><span>Historial</span></a>
+      <a href="galeria.html"><span class="nav-icono">🏆</span><span>Galería</span></a>
+    </nav>
+    <div class="sidebar-footer">Temporada 2024–25</div>
+  </aside>
+ 
+  <!-- CONTENIDO -->
+  <main class="contenido">
+    <div class="topbar">
+      <span class="topbar-titulo">CALENDARIO</span>
+      <div class="topbar-acciones">
+        <button class="btn btn-primary btn-sm" onclick="document.getElementById('modal-evento').style.display='flex'">+ Nuevo Evento</button>
+      </div>
+    </div>
+ 
+    <div class="page-hero" data-bg-text="MAYO">
+      <div class="page-titulo fade-in">CALENDARIO DE EVENTOS</div>
+      <div class="page-subtitulo fade-in-1">Partidos · Entrenamientos · Eventos institucionales</div>
+    </div>
+ 
+    <div class="page-body">
+ 
+      <!-- Leyenda -->
+      <div class="flex gap-16 mb-24 flex-wrap fade-in-2">
+        <div class="flex-center gap-8"><div style="width:12px;height:12px;border-radius:2px;background:var(--rojo)"></div><span class="text-xs font-cond tracking uppercase text-gris">Partido oficial</span></div>
+        <div class="flex-center gap-8"><div style="width:12px;height:12px;border-radius:2px;background:var(--azul)"></div><span class="text-xs font-cond tracking uppercase text-gris">Entrenamiento</span></div>
+        <div class="flex-center gap-8"><div style="width:12px;height:12px;border-radius:2px;background:var(--dorado)"></div><span class="text-xs font-cond tracking uppercase text-gris">Evento institucional</span></div>
+        <div class="flex-center gap-8"><div style="width:12px;height:12px;border-radius:2px;background:var(--verde)"></div><span class="text-xs font-cond tracking uppercase text-gris">Amistoso</span></div>
+      </div>
+ 
+      <div class="grid-23 fade-in-3">
+ 
+        <!-- Calendario mensual -->
+        <div class="card">
+          <div class="flex-between mb-20">
+            <button class="btn btn-ghost btn-sm" onclick="cambiarMes(-1)">← Anterior</button>
+            <div style="font-family:var(--font-titulo); font-size:22px; letter-spacing:3px; text-align:center;" id="mesActual">MAYO 2025</div>
+            <button class="btn btn-ghost btn-sm" onclick="cambiarMes(1)">Siguiente →</button>
+          </div>
+ 
+          <div class="cal-grid">
+            <div class="cal-header">Dom</div>
+            <div class="cal-header">Lun</div>
+            <div class="cal-header">Mar</div>
+            <div class="cal-header">Mié</div>
+            <div class="cal-header">Jue</div>
+            <div class="cal-header">Vie</div>
+            <div class="cal-header">Sáb</div>
+ 
+            <!-- Semana 1 -->
+            <div class="cal-dia inactivo">27</div>
+            <div class="cal-dia inactivo">28</div>
+            <div class="cal-dia inactivo">29</div>
+            <div class="cal-dia inactivo">30</div>
+            <div class="cal-dia">1</div>
+            <div class="cal-dia">2</div>
+            <div class="cal-dia">3</div>
+            <!-- Semana 2 -->
+            <div class="cal-dia">4</div>
+            <div class="cal-dia tiene-evento" title="Entrenamiento">5</div>
+            <div class="cal-dia tiene-evento" title="Entrenamiento">6</div>
+            <div class="cal-dia">7</div>
+            <div class="cal-dia tiene-evento" title="Entrenamiento">8</div>
+            <div class="cal-dia">9</div>
+            <div class="cal-dia tiene-evento" title="Partido: vs FC Viento Norte">10</div>
+            <!-- Semana 3 -->
+            <div class="cal-dia">11</div>
+            <div class="cal-dia tiene-evento">12</div>
+            <div class="cal-dia tiene-evento">13</div>
+            <div class="cal-dia">14</div>
+            <div class="cal-dia hoy">15</div>
+            <div class="cal-dia tiene-evento">16</div>
+            <div class="cal-dia">17</div>
+            <!-- Semana 4 -->
+            <div class="cal-dia">18</div>
+            <div class="cal-dia tiene-evento" title="Partido vs Viento Norte">19</div>
+            <div class="cal-dia tiene-evento">20</div>
+            <div class="cal-dia">21</div>
+            <div class="cal-dia tiene-evento">22</div>
+            <div class="cal-dia">23</div>
+            <div class="cal-dia tiene-evento" title="Copa Regional">24</div>
+            <!-- Semana 5 -->
+            <div class="cal-dia">25</div>
+            <div class="cal-dia tiene-evento">26</div>
+            <div class="cal-dia tiene-evento">27</div>
+            <div class="cal-dia">28</div>
+            <div class="cal-dia">29</div>
+            <div class="cal-dia">30</div>
+            <div class="cal-dia">31</div>
+          </div>
+        </div>
+ 
+        <!-- Lista de eventos -->
+        <div style="display:flex; flex-direction:column; gap:16px;">
+          <div class="seccion-titulo">Próximos Eventos</div>
+ 
+          <div class="card" style="border-left:3px solid var(--rojo); padding:16px 20px;">
+            <div class="flex-between mb-8">
+              <span class="badge badge-rojo">Partido Oficial</span>
+              <span class="text-xs text-gris font-cond">Sáb 18 Mayo</span>
+            </div>
+            <div style="font-family:var(--font-titulo); font-size:18px; letter-spacing:2px; color:var(--blanco-puro); margin-bottom:4px;">
+              VS FC VIENTO NORTE
+            </div>
+            <div class="text-xs text-gris font-cond tracking uppercase">16:00 hs · Estadio Municipal · Local</div>
+          </div>
+ 
+          <div class="card" style="border-left:3px solid var(--azul); padding:16px 20px;">
+            <div class="flex-between mb-8">
+              <span class="badge badge-azul">Entrenamiento</span>
+              <span class="text-xs text-gris font-cond">Lun 19 Mayo</span>
+            </div>
+            <div style="font-family:var(--font-titulo); font-size:18px; letter-spacing:2px; color:var(--blanco-puro); margin-bottom:4px;">
+              PRÁCTICA TÁCTICA
+            </div>
+            <div class="text-xs text-gris font-cond tracking uppercase">09:00 hs · Cancha auxiliar · Plantel completo</div>
+          </div>
+ 
+          <div class="card" style="border-left:3px solid var(--dorado); padding:16px 20px;">
+            <div class="flex-between mb-8">
+              <span class="badge" style="background:rgba(201,168,76,0.15); color:var(--dorado); border:1px solid rgba(201,168,76,0.3);">Institucional</span>
+              <span class="text-xs text-gris font-cond">Mié 21 Mayo</span>
+            </div>
+            <div style="font-family:var(--font-titulo); font-size:18px; letter-spacing:2px; color:var(--blanco-puro); margin-bottom:4px;">
+              REUNIÓN DE SOCIOS
+            </div>
+            <div class="text-xs text-gris font-cond tracking uppercase">19:30 hs · Salón club · Obligatorio directivos</div>
+          </div>
+ 
+          <div class="card" style="border-left:3px solid var(--verde); padding:16px 20px;">
+            <div class="flex-between mb-8">
+              <span class="badge badge-verde">Amistoso</span>
+              <span class="text-xs text-gris font-cond">Sáb 24 Mayo</span>
+            </div>
+            <div style="font-family:var(--font-titulo); font-size:18px; letter-spacing:2px; color:var(--blanco-puro); margin-bottom:4px;">
+              VS REAL PAMPA FC
+            </div>
+            <div class="text-xs text-gris font-cond tracking uppercase">15:00 hs · Cancha del rival · Visitante</div>
+          </div>
+ 
+          <div class="card" style="border-left:3px solid var(--azul); padding:16px 20px;">
+            <div class="flex-between mb-8">
+              <span class="badge badge-azul">Entrenamiento</span>
+              <span class="text-xs text-gris font-cond">Lun 26 Mayo</span>
+            </div>
+            <div style="font-family:var(--font-titulo); font-size:18px; letter-spacing:2px; color:var(--blanco-puro); margin-bottom:4px;">
+              PRÁCTICA DE FÍSICO
+            </div>
+            <div class="text-xs text-gris font-cond tracking uppercase">08:30 hs · Gimnasio · Plantel completo</div>
+          </div>
+ 
+          <a href="reservas.html" class="btn btn-outline" style="width:100%; justify-content:center; margin-top:4px;">
+            🎟️ Reservar lugar en evento
+          </a>
+        </div>
+      </div>
+ 
+      <!-- Tabla resumen mes -->
+      <div class="card mt-24 fade-in-4">
+        <div class="seccion-titulo">Resumen del Mes — Mayo 2025</div>
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-icono">⚽</div>
+            <div class="stat-valor">3</div>
+            <div class="stat-label">Partidos</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icono">🏃</div>
+            <div class="stat-valor">12</div>
+            <div class="stat-label">Entrenamientos</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icono">🏛️</div>
+            <div class="stat-valor">2</div>
+            <div class="stat-label">Eventos inst.</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icono">🤝</div>
+            <div class="stat-valor">1</div>
+            <div class="stat-label">Amistoso</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+ 
+<!-- Modal nuevo evento -->
+<div id="modal-evento" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:999; align-items:center; justify-content:center;">
+  <div class="card" style="width:480px; max-width:90vw; border-color:var(--rojo);">
+    <div class="flex-between mb-24">
+      <h2 style="font-family:var(--font-titulo); font-size:22px; letter-spacing:2px;">NUEVO EVENTO</h2>
+      <button class="btn btn-ghost btn-sm" onclick="document.getElementById('modal-evento').style.display='none'">✕</button>
+    </div>
+    <div class="form-grid form-grid-2">
+      <div class="form-grupo full">
+        <label>Nombre del Evento</label>
+        <input type="text" placeholder="Ej: Partido vs Atlético Sur" />
+      </div>
+      <div class="form-grupo">
+        <label>Tipo</label>
+        <select>
+          <option>Partido oficial</option>
+          <option>Entrenamiento</option>
+          <option>Amistoso</option>
+          <option>Institucional</option>
+        </select>
+      </div>
+      <div class="form-grupo">
+        <label>Categoría</label>
+        <select>
+          <option>Primera División</option>
+          <option>Reserva</option>
+          <option>Sub-17</option>
+          <option>Todas</option>
+        </select>
+      </div>
+      <div class="form-grupo">
+        <label>Fecha</label>
+        <input type="date" />
+      </div>
+      <div class="form-grupo">
+        <label>Hora</label>
+        <input type="time" />
+      </div>
+      <div class="form-grupo full">
+        <label>Lugar</label>
+        <input type="text" placeholder="Estadio / Cancha / Sala" />
+      </div>
+      <div class="form-grupo full">
+        <label>Notas adicionales</label>
+        <textarea placeholder="Observaciones del evento..." style="min-height:70px;"></textarea>
+      </div>
+    </div>
+    <div class="form-acciones mt-8">
+      <button class="btn btn-outline" onclick="document.getElementById('modal-evento').style.display='none'">Cancelar</button>
+      <button class="btn btn-primary">Agregar evento</button>
+    </div>
+  </div>
+</div>
+ 
+<script>
+const meses = ['ENERO','FEBRERO','MARZO','ABRIL','MAYO','JUNIO','JULIO','AGOSTO','SEPTIEMBRE','OCTUBRE','NOVIEMBRE','DICIEMBRE'];
+let mesIdx = 4; // Mayo
+let anio = 2025;
+function cambiarMes(dir) {
+  mesIdx = (mesIdx + dir + 12) % 12;
+  if (dir === 1 && mesIdx === 0) anio++;
+  if (dir === -1 && mesIdx === 11) anio--;
+  document.getElementById('mesActual').textContent = meses[mesIdx] + ' ' + anio;
+}
+</script>
+</body>
+</html
