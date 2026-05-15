@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reservas — Deportivo Resaka</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="wrapper">
+ 
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-escudo">DR</div>
+      <div class="brand-nombre">DEPORTIVO<br>RESAKA</div>
+      <div class="brand-sub">Sistema de Gestión</div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-seccion">Principal</div>
+      <a href="index.html"><span class="nav-icono">📊</span><span>Dashboard</span></a>
+      <a href="inventario.html"><span class="nav-icono">📦</span><span>Inventario</span></a>
+      <a href="perfil.html"><span class="nav-icono">👤</span><span>Ficha Jugador</span></a>
+      <a href="configuracion.html"><span class="nav-icono">⚙️</span><span>Configuración</span></a>
+      <div class="nav-seccion">Gestión</div>
+      <a href="calendario.html"><span class="nav-icono">📅</span><span>Calendario</span></a>
+      <a href="reservas.html" class="activo"><span class="nav-icono">🎟️</span><span>Reservas</span></a>
+      <a href="historial.html"><span class="nav-icono">📋</span><span>Historial</span></a>
+      <a href="galeria.html"><span class="nav-icono">🏆</span><span>Galería</span></a>
+    </nav>
+    <div class="sidebar-footer">Temporada 2024–25</div>
+  </aside>
+ 
+  <!-- CONTENIDO -->
+  <main class="contenido">
+    <div class="topbar">
+      <span class="topbar-titulo">RESERVAS</span>
+      <div class="topbar-acciones">
+        <span class="topbar-fecha">Formulario de Reservas</span>
+      </div>
+    </div>
+ 
+    <div class="page-hero" data-bg-text="RESERVA">
+      <div class="page-titulo fade-in">FORMULARIO DE RESERVAS</div>
+      <div class="page-subtitulo fade-in-1">Cancha · Vestuario · Salón · Equipamiento</div>
+    </div>
+ 
+    <div class="page-body">
+ 
+      <!-- Tipos de reserva -->
+      <div class="stat-grid fade-in-2" style="grid-template-columns: repeat(4,1fr);">
+        <div class="stat-card" id="tipo-cancha" onclick="seleccionarTipo('cancha')" style="cursor:pointer; border-color:var(--rojo);">
+          <div class="stat-icono">⚽</div>
+          <div class="stat-label" style="font-size:14px; color:var(--blanco);">Cancha</div>
+          <div class="text-xs text-gris font-cond mt-8">Principal / Auxiliar</div>
+        </div>
+        <div class="stat-card" id="tipo-vestuario" onclick="seleccionarTipo('vestuario')" style="cursor:pointer;">
+          <div class="stat-icono">🚿</div>
+          <div class="stat-label" style="font-size:14px; color:var(--blanco);">Vestuario</div>
+          <div class="text-xs text-gris font-cond mt-8">Local / Visitante</div>
+        </div>
+        <div class="stat-card" id="tipo-salon" onclick="seleccionarTipo('salon')" style="cursor:pointer;">
+          <div class="stat-icono">🏛️</div>
+          <div class="stat-label" style="font-size:14px; color:var(--blanco);">Salón</div>
+          <div class="text-xs text-gris font-cond mt-8">Reuniones / Eventos</div>
+        </div>
+        <div class="stat-card" id="tipo-equipo" onclick="seleccionarTipo('equipo')" style="cursor:pointer;">
+          <div class="stat-icono">🏋️</div>
+          <div class="stat-label" style="font-size:14px; color:var(--blanco);">Equipamiento</div>
+          <div class="text-xs text-gris font-cond mt-8">Pelotas / Conos / etc.</div>
+        </div>
+      </div>
+ 
+      <div class="grid-23 fade-in-3">
+ 
+        <!-- Formulario principal -->
+        <div class="card">
+          <div class="seccion-titulo">Nueva Reserva</div>
+ 
+          <!-- Indicador de paso -->
+          <div class="flex-center gap-16 mb-24">
+            <div class="flex-center gap-8">
+              <div class="pill-numero" id="paso1-ico">1</div>
+              <span class="text-xs font-cond tracking uppercase text-gris" id="paso1-txt">Solicitante</span>
+            </div>
+            <div style="flex:1; height:1px; background:var(--gris-borde);"></div>
+            <div class="flex-center gap-8">
+              <div class="pill-numero" style="background:var(--gris-borde);" id="paso2-ico">2</div>
+              <span class="text-xs font-cond tracking uppercase text-gris" id="paso2-txt">Espacio / Recurso</span>
+            </div>
+            <div style="flex:1; height:1px; background:var(--gris-borde);"></div>
+            <div class="flex-center gap-8">
+              <div class="pill-numero" style="background:var(--gris-borde);" id="paso3-ico">3</div>
+              <span class="text-xs font-cond tracking uppercase text-gris" id="paso3-txt">Confirmar</span>
+            </div>
+          </div>
+ 
+          <!-- Paso 1 -->
+          <div id="form-paso1">
+            <div class="form-grid form-grid-2">
+              <div class="form-grupo">
+                <label>Nombre completo *</label>
+                <input type="text" id="nombre" placeholder="Nombre del solicitante" />
+              </div>
+              <div class="form-grupo">
+                <label>DNI *</label>
+                <input type="text" id="dni" placeholder="Ej: 38.441.222" />
+              </div>
+              <div class="form-grupo">
+                <label>Teléfono</label>
+                <input type="tel" id="telefono" placeholder="+54 11 ..." />
+              </div>
+              <div class="form-grupo">
+                <label>Email</label>
+                <input type="email" id="email" placeholder="correo@ejemplo.com" />
+              </div>
+              <div class="form-grupo full">
+                <label>Categoría / Equipo *</label>
+                <select id="categoria">
+                  <option value="">— Seleccionar —</option>
+                  <option>Primera División</option>
+                  <option>Reserva</option>
+                  <option>Sub-17</option>
+                  <option>Externo / Invitado</option>
+                </select>
+              </div>
+              <div class="form-grupo full">
+                <label>Motivo de la reserva *</label>
+                <select id="motivo">
+                  <option value="">— Seleccionar —</option>
+                  <option>Entrenamiento regular</option>
+                  <option>Partido amistoso</option>
+                  <option>Evento institucional</option>
+                  <option>Alquiler externo</option>
+                  <option>Otro</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-acciones mt-8">
+              <button class="btn btn-primary" onclick="irPaso(2)">Continuar →</button>
+            </div>
+          </div>
+ 
+          <!-- Paso 2 -->
+          <div id="form-paso2" style="display:none;">
+            <div class="form-grid form-grid-2">
+              <div class="form-grupo">
+                <label>Espacio / Recurso *</label>
+                <select id="espacio">
+                  <option value="">— Seleccionar —</option>
+                  <option>Cancha Principal</option>
+                  <option>Cancha Auxiliar</option>
+                  <option>Vestuario Local</option>
+                  <option>Vestuario Visitante</option>
+                  <option>Salón de Reuniones</option>
+                  <option>Gimnasio</option>
+                  <option>Equipamiento General</option>
+                </select>
+              </div>
+              <div class="form-grupo">
+                <label>Cantidad de personas *</label>
+                <input type="number" id="personas" min="1" max="100" placeholder="Ej: 22" />
+              </div>
+              <div class="form-grupo">
+                <label>Fecha *</label>
+                <input type="date" id="fecha" />
+              </div>
+              <div class="form-grupo">
+                <label>Horario *</label>
+                <select id="horario">
+                  <option value="">— Seleccionar franja —</option>
+                  <option>07:00 – 09:00 hs</option>
+                  <option>09:00 – 11:00 hs</option>
+                  <option>11:00 – 13:00 hs</option>
+                  <option>14:00 – 16:00 hs</option>
+                  <option>16:00 – 18:00 hs</option>
+                  <option>18:00 – 20:00 hs</option>
+                  <option>20:00 – 22:00 hs</option>
+                </select>
+              </div>
+              <div class="form-grupo full">
+                <label>Equipamiento adicional solicitado</label>
+                <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:4px;">
+                  <label style="text-transform:none; letter-spacing:0; display:flex; align-items:center; gap:6px; font-size:14px; color:var(--blanco); cursor:pointer;">
+                    <input type="checkbox" /> Pelotas (x5)
+                  </label>
+                  <label style="text-transform:none; letter-spacing:0; display:flex; align-items:center; gap:6px; font-size:14px; color:var(--blanco); cursor:pointer;">
+                    <input type="checkbox" /> Conos
+                  </label>
+                  <label style="text-transform:none; letter-spacing:0; display:flex; align-items:center; gap:6px; font-size:14px; color:var(--blanco); cursor:pointer;">
+                    <input type="checkbox" /> Pecheras
+                  </label>
+                  <label style="text-transform:none; letter-spacing:0; display:flex; align-items:center; gap:6px; font-size:14px; color:var(--blanco); cursor:pointer;">
+                    <input type="checkbox" /> Arcos móviles
+                  </label>
+                </div>
+              </div>
+              <div class="form-grupo full">
+                <label>Observaciones</label>
+                <textarea id="observaciones" placeholder="Notas adicionales para la reserva..." style="min-height:80px;"></textarea>
+              </div>
+            </div>
+            <div class="form-acciones mt-8">
+              <button class="btn btn-outline" onclick="irPaso(1)">← Volver</button>
+              <button class="btn btn-primary" onclick="irPaso(3)">Continuar →</button>
+            </div>
+          </div>
+ 
+          <!-- Paso 3: Confirmación -->
+          <div id="form-paso3" style="display:none;">
+            <div id="resumen-reserva" class="card" style="background:var(--gris-oscuro); margin-bottom:20px;">
+              <div class="seccion-titulo">Resumen de tu Reserva</div>
+              <div style="display:flex; flex-direction:column; gap:10px;" id="detalle-resumen">
+              </div>
+            </div>
+            <div class="form-acciones">
+              <button class="btn btn-outline" onclick="irPaso(2)">← Volver</button>
+              <button class="btn btn-primary" onclick="confirmarReserva()">✅ Confirmar Reserva</button>
+            </div>
+          </div>
+ 
+          <!-- Paso confirmado -->
+          <div id="form-confirmado" style="display:none; text-align:center; padding:32px 0;">
+            <div style="font-size:56px; margin-bottom:16px;">✅</div>
+            <div style="font-family:var(--font-titulo); font-size:28px; letter-spacing:3px; color:var(--verde); margin-bottom:8px;">RESERVA CONFIRMADA</div>
+            <div class="text-gris font-cond tracking uppercase text-xs mb-24">Se ha registrado correctamente</div>
+            <button class="btn btn-primary" onclick="nuevaReserva()">+ Nueva Reserva</button>
+          </div>
+        </div>
+ 
+        <!-- Lista de reservas recientes -->
+        <div style="display:flex; flex-direction:column; gap:16px;">
+          <div class="seccion-titulo">Reservas Recientes</div>
+ 
+          <div class="card" style="padding:14px 16px; border-left:3px solid var(--verde);">
+            <div class="flex-between mb-4">
+              <span class="badge badge-verde">Confirmada</span>
+              <span class="text-xs text-gris font-cond">18 Mayo · 16:00 hs</span>
+            </div>
+            <div class="font-cond text-blanco" style="font-weight:700; font-size:15px;">Cancha Principal</div>
+            <div class="text-xs text-gris font-cond mt-4">1ª División · Partido oficial</div>
+          </div>
+ 
+          <div class="card" style="padding:14px 16px; border-left:3px solid var(--azul);">
+            <div class="flex-between mb-4">
+              <span class="badge badge-azul">Confirmada</span>
+              <span class="text-xs text-gris font-cond">19 Mayo · 09:00 hs</span>
+            </div>
+            <div class="font-cond text-blanco" style="font-weight:700; font-size:15px;">Cancha Auxiliar</div>
+            <div class="text-xs text-gris font-cond mt-4">Reserva · Entrenamiento</div>
+          </div>
+ 
+          <div class="card" style="padding:14px 16px; border-left:3px solid var(--dorado);">
+            <div class="flex-between mb-4">
+              <span class="badge" style="background:rgba(201,168,76,0.15);color:var(--dorado);border:1px solid rgba(201,168,76,0.3);">Pendiente</span>
+              <span class="text-xs text-gris font-cond">21 Mayo · 19:30 hs</span>
+            </div>
+            <div class="font-cond text-blanco" style="font-weight:700; font-size:15px;">Salón de Reuniones</div>
+            <div class="text-xs text-gris font-cond mt-4">Directivos · Reunión socios</div>
+          </div>
+ 
+          <div class="card" style="padding:14px 16px; border-left:3px solid var(--rojo);">
+            <div class="flex-between mb-4">
+              <span class="badge badge-rojo">Cancelada</span>
+              <span class="text-xs text-gris font-cond">16 Mayo · 10:00 hs</span>
+            </div>
+            <div class="font-cond text-blanco" style="font-weight:700; font-size:15px;">Gimnasio</div>
+            <div class="text-xs text-gris font-cond mt-4">Sub-17 · Físico</div>
+          </div>
+ 
+          <a href="historial.html" class="btn btn-outline" style="width:100%; justify-content:center; margin-top:4px;">
+            📋 Ver historial completo
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+ 
+<script>
+let pasoActual = 1;
+ 
+function irPaso(paso) {
+  document.getElementById('form-paso1').style.display = paso === 1 ? 'block' : 'none';
+  document.getElementById('form-paso2').style.display = paso === 2 ? 'block' : 'none';
+  document.getElementById('form-paso3').style.display = paso === 3 ? 'block' : 'none';
+ 
+  [1,2,3].forEach(p => {
+    const ico = document.getElementById('paso'+p+'-ico');
+    ico.style.background = p <= paso ? 'var(--rojo)' : 'var(--gris-borde)';
+  });
+ 
+  if (paso === 3) {
+    const nombre = document.getElementById('nombre').value || '—';
+    const espacio = document.getElementById('espacio').value || '—';
+    const fecha = document.getElementById('fecha').value || '—';
+    const horario = document.getElementById('horario').value || '—';
+    const motivo = document.getElementById('motivo').value || '—';
+    document.getElementById('detalle-resumen').innerHTML = `
+      <div class="flex-between"><span class="text-xs text-gris font-cond tracking uppercase">Solicitante</span><span class="font-cond">${nombre}</span></div>
+      <div class="flex-between"><span class="text-xs text-gris font-cond tracking uppercase">Espacio</span><span class="font-cond">${espacio}</span></div>
+      <div class="flex-between"><span class="text-xs text-gris font-cond tracking uppercase">Fecha</span><span class="font-cond">${fecha}</span></div>
+      <div class="flex-between"><span class="text-xs text-gris font-cond tracking uppercase">Horario</span><span class="font-cond">${horario}</span></div>
+      <div class="flex-between"><span class="text-xs text-gris font-cond tracking uppercase">Motivo</span><span class="font-cond">${motivo}</span></div>
+    `;
+  }
+  pasoActual = paso;
+}
+ 
+function confirmarReserva() {
+  document.getElementById('form-paso3').style.display = 'none';
+  document.getElementById('form-confirmado').style.display = 'block';
+}
+ 
+function nuevaReserva() {
+  document.getElementById('form-confirmado').style.display = 'none';
+  irPaso(1);
+}
+ 
+function seleccionarTipo(tipo) {
+  ['cancha','vestuario','salon','equipo'].forEach(t => {
+    document.getElementById('tipo-'+t).style.borderColor = t === tipo ? 'var(--rojo)' : 'var(--gris-borde)';
+  });
+  const mapaEspacio = {
+    cancha: 'Cancha Principal',
+    vestuario: 'Vestuario Local',
+    salon: 'Salón de Reuniones',
+    equipo: 'Equipamiento General'
+  };
+  const sel = document.getElementById('espacio');
+  if (sel) sel.value = mapaEspacio[tipo];
+}
+</script>
+</body>
+</html>
