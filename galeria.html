@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Galería — Deportivo Resaka</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="wrapper">
+ 
+<!-- SIDEBAR -->
+<aside class="sidebar">
+<div class="sidebar-brand">
+<div class="brand-escudo">DR</div>
+<div class="brand-nombre">DEPORTIVO<br>RESAKA</div>
+<div class="brand-sub">Sistema de Gestión</div>
+</div>
+<nav class="sidebar-nav">
+<div class="nav-seccion">Principal</div>
+<a href="index.html"><span class="nav-icono">📊</span><span>Dashboard</span></a>
+<a href="inventario.html"><span class="nav-icono">📦</span><span>Inventario</span></a>
+<a href="perfil.html"><span class="nav-icono">👤</span><span>Ficha Jugador</span></a>
+<a href="configuracion.html"><span class="nav-icono">⚙️</span><span>Configuración</span></a>
+<div class="nav-seccion">Gestión</div>
+<a href="calendario.html"><span class="nav-icono">📅</span><span>Calendario</span></a>
+<a href="reservas.html"><span class="nav-icono">🎟️</span><span>Reservas</span></a>
+<a href="historial.html"><span class="nav-icono">📋</span><span>Historial</span></a>
+<a href="galeria.html" class="activo"><span class="nav-icono">🏆</span><span>Galería</span></a>
+</nav>
+<div class="sidebar-footer">Temporada 2024–25</div>
+</aside>
+ 
+<!-- CONTENIDO -->
+<main class="contenido">
+<div class="topbar">
+<span class="topbar-titulo">GALERÍA</span>
+<div class="topbar-acciones">
+<span class="topbar-fecha">Catálogo del Club</span>
+<button class="btn btn-primary btn-sm">+ Agregar</button>
+</div>
+</div>
+ 
+<div class="page-hero" data-bg-text="GALERÍA">
+<div class="page-titulo fade-in">GALERÍA DEL CLUB</div>
+<div class="page-subtitulo fade-in-1">Jugadores · Indumentaria · Estadio · Palmarés</div>
+</div>
+ 
+<div class="page-body">
+ 
+<!-- Tabs de categorías -->
+<div class="flex gap-8 mb-24 flex-wrap fade-in-2">
+<button class="btn btn-primary btn-sm tab-gal" onclick="filtrarGal('todos', this)">🏠 Todos</button>
+<button class="btn btn-ghost btn-sm tab-gal" onclick="filtrarGal('jugadores', this)">👥 Jugadores</button>
+<button class="btn btn-ghost btn-sm tab-gal" onclick="filtrarGal('indumentaria', this)">👕 Indumentaria</button>
+<button class="btn btn-ghost btn-sm tab-gal" onclick="filtrarGal('estadio', this)">🏟️ Estadio</button>
+<button class="btn btn-ghost btn-sm tab-gal" onclick="filtrarGal('palmares', this)">🏆 Palmarés</button>
+</div>
+ 
+<!-- Buscador galería -->
+<div class="card mb-24 fade-in-3">
+<div class="flex-center gap-12">
+<input type="text" placeholder="🔍 Buscar en la galería..." style="max-width:300px;" id="buscGal" oninput="buscarGal()" />
+<select id="ordenGal" onchange="buscarGal()">
+<option>Más reciente</option>
+<option>Nombre A–Z</option>
+<option>Nombre Z–A</option>
+</select>
+</div>
+</div>
+ 
+<!-- Grid Galería -->
+<div class="galeria-grid fade-in-4" id="galeria-grid">
+ 
+<!-- JUGADORES -->
+<div class="galeria-card" data-cat="jugadores" data-nombre="Luciano Ferreyra" onclick="abrirModal('Luciano Ferreyra','Delantero Centro — #9','⚽','jugadores','Goleador del equipo. 18 goles en la temporada 2024/25. Capitán y referente del plantel.','Victoria · Definición · Liderazgo')">
+<div class="galeria-img" style="background:linear-gradient(135deg,#1a0a0a,#2d1010);">⚽</div>
+<div class="galeria-info">
+<div class="galeria-nombre">LUCIANO FERREYRA</div>
+<div class="galeria-detalle">Delantero · #9 · Capitán</div>
+<div class="mt-8"><span class="badge badge-rojo">18 goles</span></div>
+</div>
+</div>
+ 
+<div class="galeria-card" data-cat="jugadores" data-nombre="Mateo Suárez" onclick="abrirModal('Mateo Suárez','Mediocampista Ofensivo — #10','🎯','jugadores','Cerebro del equipo. 12 goles y 15 asistencias en la temporada. Motor del juego creativo.','Creatividad · Pase · Visión de juego')">
+<div class="galeria-img" style="background:linear-gradient(135deg,#0a0a1a,#10102d);">🎯</div>
+<div class="galeria-info">
+<div class="galeria-nombre">MATEO SUÁREZ</div>
+<div class="galeria-detalle">Mediocampista · #10</div>
+<div class="mt-8"><span class="badge badge-azul">12 goles · 15 ast.</span></div>
+</div>
+</div>
+ 
+<div class="galeria-card" data-cat="jugadores" data-nombre="Carlos Romero" onclick="abrirModal('Carlos Romero','Arquero — #1','🧤','jugadores','Guardavallas titular. 11 vallas invictas en la temporada. Referente de la defensa.','Reflejos · Liderazgo · Vallas invictas')">
+<div class="galeria-img" style="background:linear-gradient(135deg,#0a1a0a,#102d10);">🧤</div>
+<div class="galeria-info">
+<div class="galeria-nombre">CARLOS ROMERO</div>
+<div class="galeria-detalle">Arquero · #1</div>
+<div class="mt-8"><span class="badge badge-verde">11 vallas invictas</span></div>
+</div>
+</div>
+ 
+<div class="galeria-card" data-cat="jugadores" data-nombre="Rodrigo Páez" onclick="abrirModal('Rodrigo Páez','Extremo Derecho — #11','⚡','jugadores','Extremo veloz. 9 goles y 12 asistencias. Desequilibrante en ataque.','Velocidad · Regate · Centros')">
+<div class="galeria-img" style="background:linear-gradient(135deg,#1a1a0a,#2d2d10);">⚡</div>
+<div class="galeria-info">
+<div class="galeria-nombre">RODRIGO PÁEZ</div>
+<div class="galeria-detalle">Extremo · #11</div>
+<div class="mt-8"><span class="badge badge-amarillo">9 goles · 12 ast.</span></div>
+</div>
+</div>
+ 
+<!-- INDUMENTARIA -->
+<div class="galeria-card" data-cat="indumentaria" data-nombre="Camiseta Titular" onclick="abrirModal('Camiseta Titular 2024/25','Indumentaria oficial','👕','indumentaria','Camiseta roja con franja diagonal negra. Tecnología DryFit. Proveedor: SportMax.','Tallas: S · M · L · XL / Stock: 32 unidades')">
+<div class="galeria-img" style="background:linear-gradient(135deg,var(--rojo),#8B0000);">👕</div>
+<div class="galeria-info">
+<div class="galeria-nombre">CAMISETA TITULAR</div>
+<div class="galeria-detalle">Indumentaria 2024/25</div>
+<div class="mt-8"><span class="badge badge-verde">Stock: 32</span></div>
+</div>
+</div>
+ 
+<div class="galeria-card" data-cat="indumentaria" data-nombre="Camiseta Alternativa" onclick="abrirModal('Camiseta Alternativa 2024/25','Indumentaria oficial — visitante','🔲','indumentaria','Camiseta negra con detalles rojos. Tecnología DryFit. Proveedor: SportMax.','Tallas: S · M · L · XL / Stock: 28 unidades')">
+<div class="galeria-img" style="background:linear-gradient(135deg,#111,#2a0a0a);">🔲</div>
+<div class="galeria-info">
+<div class="galeria-nombre">CAMISETA ALTERNATIVA</div>
+<div class="galeria-detalle">Indumentaria — Visitante</div>
+<div class="mt-8"><span class="badge badge-verde">Stock: 28</span></div>
+</div>
+</div>
+ 
+<div class="galeria-card" data-cat="indumentaria" data-nombre="Equipamiento arquero" onclick="abrirModal('Equipamiento Arquero','Indumentaria especializada','🧤','indumentaria','Camiseta fluorescente, guantes reforzados y pantalón acolchado. Kit completo.','Talla única · Stock: 3 kits completos')">
+<div class="galeria-img" style="background:linear-gradient(135deg,#0a2a0a,#104010);">🧤</div>
+<div class="galeria-info">
+<div class="galeria-nombre">KIT ARQUERO</div>
+<div class="galeria-detalle">Equipamiento especializado</div>
+<div class="mt-8"><span class="badge badge-verde">3 kits</span></div>
+</div>
+</div>
+ 
+<!-- ESTADIO -->
+<div class="galeria-card" data-cat="estadio" data-nombre="Cancha Principal" onclick="abrirModal('Cancha Principal','Estadio Municipal Resaka','🏟️','estadio','Capacidad: 8.500 espectadores. Césped natural. Iluminación LED nocturna. Vestuarios renovados en 2023.','Dimensiones: 105 x 68 m')">
+<div class="galeria-img" style="background:linear-gradient(135deg,#0a1a10,#0f2a18);">🏟️</div>
+<div class="galeria-info">
+<div class="galeria-nombre">CANCHA PRINCIPAL</div>
+<div class="galeria-detalle">Estadio Municipal · 8.500 cap.</div>
+<div class="mt-8"><span class="badge badge-verde">Disponible</span></div>
+</div>
+</div>
+ 
+<div class="galeria-card" data-cat="estadio" data-nombre="Cancha auxiliar" onclick="abrirModal('Cancha Auxiliar','Instalaciones del club','⛳','estadio','Cancha de entrenamiento con pasto sintético. Uso exclusivo para inferiores y práctica táctica.','Capacidad: 200 personas · Techada 40%')">
+<div class="galeria-img" style="background:linear-gradient(135deg,#0a1510,#0f2015);">⛳</div>
+<div class="galeria-info">
+<div class="galeria-nombre">CANCHA AUXILIAR</div>
+<div class="galeria-detalle">Entrenamiento · Sintética</div>
+<div class="mt-8"><span class="badge badge-azul">Entrenamiento</span></div>
+</div>
+</div>
+ 
+<!-- PALMARÉS -->
+<div class="galeria-card" data-cat="palmares" data-nombre="Liga Regional 2022" onclick="abrirModal('Campeones Liga Regional','Temporada 2021/22','🏆','palmares','Primer título de liga en la historia del club. Final ganada 2-0 ante Atlético Sur. Mejor temporada hasta ese momento.','34 partidos · 22 victorias · 78 goles')">
+<div class="galeria-img" style="background:linear-gradient(135deg,#1a140a,#2d220f);">🏆</div>
+<div class="galeria-info">
+<div class="galeria-nombre">LIGA REGIONAL 2022</div>
+<div class="galeria-detalle">Campeones · Primera vez</div>
+<div class="mt-8"><span class="badge" style="background:rgba(201,168,76,0.15);color:var(--dorado);border:1px solid rgba(201,168,76,0.3);">🥇 Campeones</span></div>
+</div>
+</div>
+ 
+<div class="galeria-card" data-cat="palmares" data-nombre="Copa Ciudad 2023" onclick="abrirModal('Copa Ciudad de Buenos Aires','Edición 2023','🥇','palmares','Victoria en los penales ante FC Viento Norte (3-2). El segundo título del club en tan solo un año.','Eliminatorias: 6 partidos · 5 victorias')">
+<div class="galeria-img" style="background:linear-gradient(135deg,#150a1a,#240f2d);">🥇</div>
+<div class="galeria-info">
+<div class="galeria-nombre">COPA CIUDAD 2023</div>
+<div class="galeria-detalle">Subcampeón Regional · 2023</div>
+<div class="mt-8"><span class="badge badge-azul">🥈 Copa</span></div>
+</div>
+</div>
+ 
+<div class="galeria-card" data-cat="palmares" data-nombre="Mejor goleador 2024" onclick="abrirModal('Premio Mejor Goleador','Individual · Temporada 2023/24','⭐','palmares','Luciano Ferreyra se consagró como el máximo goleador del campeonato con 23 goles en una temporada histórica.','23 goles · 34 partidos · 88 min promedio')">
+<div class="galeria-img" style="background:linear-gradient(135deg,#1a0a0a,#2d1010);">⭐</div>
+<div class="galeria-info">
+<div class="galeria-nombre">MEJOR GOLEADOR 2024</div>
+<div class="galeria-detalle">L. Ferreyra · 23 goles</div>
+<div class="mt-8"><span class="badge badge-rojo">Individual</span></div>
+</div>
+</div>
+ 
+</div><!-- /galeria-grid -->
+ 
+</div><!-- /page-body -->
+</main>
+</div>
+ 
+<!-- Modal detalle -->
+<div id="modal-galeria" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:999; align-items:center; justify-content:center;">
+<div class="card" style="width:520px; max-width:90vw; border-color:var(--rojo); position:relative;">
+<button onclick="document.getElementById('modal-galeria').style.display='none'" class="btn btn-ghost btn-sm" style="position:absolute; top:16px; right:16px;">✕</button>
+<div id="modal-galeria-icono" style="font-size:64px; margin-bottom:20px; text-align:center; padding:24px; background:var(--gris-oscuro); border-radius:var(--radio-lg);"></div>
+<h2 id="modal-galeria-titulo" style="font-family:var(--font-titulo); font-size:26px; letter-spacing:3px; color:var(--blanco-puro); margin-bottom:4px;"></h2>
+<div id="modal-galeria-sub" class="text-xs text-gris font-cond tracking uppercase mb-16"></div>
+<p id="modal-galeria-desc" class="mb-16" style="line-height:1.7; color: var(--blanco);"></p>
+<div id="modal-galeria-extra" class="text-xs text-gris font-cond tracking"></div>
+<div class="divider"></div>
+<div style="display:flex; gap:10px; justify-content:flex-end;">
+<button onclick="document.getElementById('modal-galeria').style.display='none'" class="btn btn-outline btn-sm">Cerrar</button>
+<a href="perfil.html" class="btn btn-primary btn-sm">Ver ficha completa</a>
+</div>
+</div>
+</div>
+ 
+<script>
+function abrirModal(titulo, sub, icono, cat, desc, extra) {
+document.getElementById('modal-galeria-titulo').textContent = titulo;
+document.getElementById('modal-galeria-sub').textContent = sub;
+document.getElementById('modal-galeria-icono').textContent = icono;
+document.getElementById('modal-galeria-desc').textContent = desc;
+document.getElementById('modal-galeria-extra').textContent = extra;
+document.getElementById('modal-galeria').style.display = 'flex';
+}
+ 
+function filtrarGal(cat, btn) {
+document.querySelectorAll('.tab-gal').forEach(b => {
+b.className = 'btn btn-ghost btn-sm tab-gal';
+});
+btn.className = 'btn btn-primary btn-sm tab-gal';
+ 
+document.querySelectorAll('.galeria-card').forEach(c => {
+c.style.display = (cat === 'todos' || c.dataset.cat === cat) ? '' : 'none';
+});
+}
+ 
+function buscarGal() {
+const txt = document.getElementById('buscGal').value.toLowerCase();
+document.querySelectorAll('.galeria-card').forEach(c => {
+c.style.display = (!txt || c.dataset.nombre.toLowerCase().includes(txt)) ? '' : 'none';
+});
+}
+</script>
+</body>
+</html>
