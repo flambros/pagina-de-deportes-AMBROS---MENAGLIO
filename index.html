@@ -1,11 +1,313 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — Deportivo Resaka</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    
+<div class="wrapper">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-escudo">DR</div>
+      <div class="brand-nombre">DEPORTIVO<br>RESAKA</div>
+      <div class="brand-sub">Sistema de Gestión</div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-seccion">Principal</div>
+      <a href="index.html" class="activo">
+        <span class="nav-icono">📊</span><span>Dashboard</span>
+      </a>
+      <a href="inventario.html">
+        <span class="nav-icono">📦</span><span>Inventario</span>
+      </a>
+      <a href="perfil.html">
+        <span class="nav-icono">👤</span><span>Ficha Jugador</span>
+      </a>
+      <a href="configuracion.html">
+        <span class="nav-icono">⚙️</span><span>Configuración</span>
+      </a>
+      <div class="nav-seccion">Gestión</div>
+      <a href="calendario.html">
+        <span class="nav-icono">📅</span><span>Calendario</span>
+      </a>
+      <a href="reservas.html">
+        <span class="nav-icono">🎟️</span><span>Reservas</span>
+      </a>
+      <a href="historial.html">
+        <span class="nav-icono">📋</span><span>Historial</span>
+      </a>
+      <a href="galeria.html">
+        <span class="nav-icono">🏆</span><span>Galería</span>
+      </a>
+    </nav>
+    <div class="sidebar-footer">Temporada 2024–25</div>
+  </aside>
+
+  <!-- CONTENIDO -->
+  <main class="contenido">
+    <div class="topbar">
+      <span class="topbar-titulo">DASHBOARD</span>
+      <div class="topbar-acciones">
+        <span class="topbar-fecha">Temporada 2024 — 2025</span>
+        <a href="reservas.html" class="btn btn-primary btn-sm">+ Nueva Reserva</a>
+      </div>
+    </div>
+
+    <div class="page-hero" data-bg-text="RESAKA">
+      <div class="page-titulo fade-in">MÉTRICAS DEL CLUB</div>
+      <div class="page-subtitulo fade-in-1">Resumen general · Temporada 2024–25</div>
+    </div>
+
+    <div class="page-body">
+
+      <!-- STATS PRINCIPALES -->
+      <div class="stat-grid fade-in-2">
+        <div class="stat-card">
+          <div class="stat-icono">⚽</div>
+          <div class="stat-valor">34</div>
+          <div class="stat-label">Partidos Jugados</div>
+          <div class="stat-delta delta-pos">↑ +4 este mes</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icono">🏆</div>
+          <div class="stat-valor">21</div>
+          <div class="stat-label">Victorias</div>
+          <div class="stat-delta delta-pos">↑ 61.7% efectividad</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icono">👥</div>
+          <div class="stat-valor">28</div>
+          <div class="stat-label">Jugadores Activos</div>
+          <div class="stat-delta delta-pos">↑ +2 incorporaciones</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icono">⚡</div>
+          <div class="stat-valor">67</div>
+          <div class="stat-label">Goles Anotados</div>
+          <div class="stat-delta delta-pos">↑ Mejor temporada</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icono">🛡️</div>
+          <div class="stat-valor">23</div>
+          <div class="stat-label">Goles Recibidos</div>
+          <div class="stat-delta delta-pos">↓ -5 vs temporada ant.</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icono">📅</div>
+          <div class="stat-valor">6</div>
+          <div class="stat-label">Eventos Próximos</div>
+          <div class="stat-delta">↗ Esta semana</div>
+        </div>
+      </div>
+
+      <!-- FILA DOS: Resultados + Tabla posición -->
+      <div class="grid-23 fade-in-3">
+
+        <!-- Últimos resultados -->
+        <div class="card">
+          <div class="seccion-titulo">Últimos Resultados</div>
+          <div class="tabla-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Rival</th>
+                  <th>Resultado</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="td-label">12 May</td>
+                  <td>FC Viento Norte</td>
+                  <td><strong>3 – 1</strong></td>
+                  <td><span class="badge badge-verde">Victoria</span></td>
+                </tr>
+                <tr>
+                  <td class="td-label">05 May</td>
+                  <td>Atlético Sur</td>
+                  <td><strong>1 – 1</strong></td>
+                  <td><span class="badge badge-amarillo">Empate</span></td>
+                </tr>
+                <tr>
+                  <td class="td-label">28 Abr</td>
+                  <td>Real Pampa FC</td>
+                  <td><strong>4 – 0</strong></td>
+                  <td><span class="badge badge-verde">Victoria</span></td>
+                </tr>
+                <tr>
+                  <td class="td-label">21 Abr</td>
+                  <td>Unión del Este</td>
+                  <td><strong>0 – 2</strong></td>
+                  <td><span class="badge badge-rojo">Derrota</span></td>
+                </tr>
+                <tr>
+                  <td class="td-label">14 Abr</td>
+                  <td>Sporting Ladera</td>
+                  <td><strong>2 – 0</strong></td>
+                  <td><span class="badge badge-verde">Victoria</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mt-16 flex-between">
+            <span class="text-gris text-sm font-cond tracking uppercase">Forma reciente: V E V D V</span>
+            <a href="historial.html" class="btn btn-ghost btn-sm">Ver historial</a>
+          </div>
+        </div>
+
+        <!-- Rendimiento -->
+        <div class="card">
+          <div class="seccion-titulo">Rendimiento</div>
+
+          <div class="mb-16">
+            <div class="flex-between mb-8">
+              <span class="text-gris text-xs font-cond tracking uppercase">Victorias</span>
+              <span class="font-cond text-verde">62%</span>
+            </div>
+            <div class="barra-wrap"><div class="barra-fill verde" style="width:62%"></div></div>
+          </div>
+
+          <div class="mb-16">
+            <div class="flex-between mb-8">
+              <span class="text-gris text-xs font-cond tracking uppercase">Empates</span>
+              <span class="font-cond text-amarillo">21%</span>
+            </div>
+            <div class="barra-wrap"><div class="barra-fill amarillo" style="width:21%"></div></div>
+          </div>
+
+          <div class="mb-24">
+            <div class="flex-between mb-8">
+              <span class="text-gris text-xs font-cond tracking uppercase">Derrotas</span>
+              <span class="font-cond text-rojo">17%</span>
+            </div>
+            <div class="barra-wrap"><div class="barra-fill" style="width:17%"></div></div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="mb-16">
+            <div class="flex-between mb-8">
+              <span class="text-gris text-xs font-cond tracking uppercase">Posesión promedio</span>
+              <span class="font-cond text-blanco">58%</span>
+            </div>
+            <div class="barra-wrap"><div class="barra-fill azul" style="width:58%"></div></div>
+          </div>
+
+          <div>
+            <div class="flex-between mb-8">
+              <span class="text-gris text-xs font-cond tracking uppercase">Asistencia cancha</span>
+              <span class="font-cond text-blanco">74%</span>
+            </div>
+            <div class="barra-wrap"><div class="barra-fill" style="width:74%; background: var(--dorado)"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FILA TRES: Goleadores + Próximo evento -->
+      <div class="grid-2 fade-in-4 mt-24">
+
+        <!-- Goleadores -->
+        <div class="card">
+          <div class="seccion-titulo">Top Goleadores</div>
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div class="flex-between">
+              <div class="flex-center gap-12">
+                <div class="pill-numero">1</div>
+                <div>
+                  <div class="font-cond text-blanco" style="font-size:15px; font-weight:700; letter-spacing:1px">Luciano Ferreyra</div>
+                  <div class="text-xs text-gris font-cond tracking uppercase">Delantero · #9</div>
+                </div>
+              </div>
+              <span class="badge badge-rojo">18 goles</span>
+            </div>
+            <div class="flex-between">
+              <div class="flex-center gap-12">
+                <div class="pill-numero" style="background:var(--gris-borde)">2</div>
+                <div>
+                  <div class="font-cond text-blanco" style="font-size:15px; font-weight:700; letter-spacing:1px">Mateo Suárez</div>
+                  <div class="text-xs text-gris font-cond tracking uppercase">Mediocampista · #10</div>
+                </div>
+              </div>
+              <span class="badge badge-amarillo">12 goles</span>
+            </div>
+            <div class="flex-between">
+              <div class="flex-center gap-12">
+                <div class="pill-numero" style="background:var(--gris-borde)">3</div>
+                <div>
+                  <div class="font-cond text-blanco" style="font-size:15px; font-weight:700; letter-spacing:1px">Rodrigo Páez</div>
+                  <div class="text-xs text-gris font-cond tracking uppercase">Extremo · #11</div>
+                </div>
+              </div>
+              <span class="badge badge-gris">9 goles</span>
+            </div>
+            <div class="flex-between">
+              <div class="flex-center gap-12">
+                <div class="pill-numero" style="background:var(--gris-borde)">4</div>
+                <div>
+                  <div class="font-cond text-blanco" style="font-size:15px; font-weight:700; letter-spacing:1px">Diego Morales</div>
+                  <div class="text-xs text-gris font-cond tracking uppercase">Mediocampista · #8</div>
+                </div>
+              </div>
+              <span class="badge badge-gris">7 goles</span>
+            </div>
+          </div>
+          <div class="mt-16">
+            <a href="perfil.html" class="btn btn-outline btn-sm" style="width:100%; justify-content:center">Ver fichas de jugadores</a>
+          </div>
+        </div>
+
+        <!-- Próximo evento + accesos rápidos -->
+        <div style="display:flex; flex-direction:column; gap:20px;">
+          <div class="card card-roja">
+            <div class="seccion-titulo">Próximo Partido</div>
+            <div style="text-align:center; padding: 12px 0;">
+              <div class="text-gris font-cond tracking uppercase text-xs mb-8">Sábado 18 de Mayo · 16:00 hs</div>
+              <div style="font-family: var(--font-titulo); font-size:28px; letter-spacing:2px; color:var(--blanco-puro); margin-bottom:8px;">
+                DEPORTIVO RESAKA
+              </div>
+              <div style="font-family: var(--font-titulo); font-size:36px; color:var(--rojo); letter-spacing:4px;">VS</div>
+              <div style="font-family: var(--font-titulo); font-size:28px; letter-spacing:2px; color:var(--blanco-puro); margin-top:8px;">
+                FC VIENTO NORTE
+              </div>
+              <div class="text-gris font-cond tracking uppercase text-xs mt-16">Estadio Municipal · Cancha Principal</div>
+            </div>
+            <a href="calendario.html" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:8px;">
+              📅 Ver calendario completo
+            </a>
+          </div>
+
+          <!-- Accesos rápidos -->
+          <div class="card">
+            <div class="seccion-titulo">Accesos Rápidos</div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+              <a href="inventario.html" class="btn btn-ghost" style="flex-direction:column; align-items:center; padding:14px; gap:4px;">
+                <span style="font-size:22px">📦</span>
+                <span>Inventario</span>
+              </a>
+              <a href="reservas.html" class="btn btn-ghost" style="flex-direction:column; align-items:center; padding:14px; gap:4px;">
+                <span style="font-size:22px">🎟️</span>
+                <span>Reservas</span>
+              </a>
+              <a href="perfil.html" class="btn btn-ghost" style="flex-direction:column; align-items:center; padding:14px; gap:4px;">
+                <span style="font-size:22px">👤</span>
+                <span>Jugadores</span>
+              </a>
+              <a href="galeria.html" class="btn btn-ghost" style="flex-direction:column; align-items:center; padding:14px; gap:4px;">
+                <span style="font-size:22px">🏆</span>
+                <span>Galería</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /page-body -->
+  </main>
+</div>
 </body>
-</html> 
+</html>

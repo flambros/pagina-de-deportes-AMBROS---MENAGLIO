@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ficha Jugador — Deportivo Resaka</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-escudo">DR</div>
+      <div class="brand-nombre">DEPORTIVO<br>RESAKA</div>
+      <div class="brand-sub">Sistema de Gestión</div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-seccion">Principal</div>
+      <a href="index.html"><span class="nav-icono">📊</span><span>Dashboard</span></a>
+      <a href="inventario.html"><span class="nav-icono">📦</span><span>Inventario</span></a>
+      <a href="perfil.html" class="activo"><span class="nav-icono">👤</span><span>Ficha Jugador</span></a>
+      <a href="configuracion.html"><span class="nav-icono">⚙️</span><span>Configuración</span></a>
+      <div class="nav-seccion">Gestión</div>
+      <a href="calendario.html"><span class="nav-icono">📅</span><span>Calendario</span></a>
+      <a href="reservas.html"><span class="nav-icono">🎟️</span><span>Reservas</span></a>
+      <a href="historial.html"><span class="nav-icono">📋</span><span>Historial</span></a>
+      <a href="galeria.html"><span class="nav-icono">🏆</span><span>Galería</span></a>
+    </nav>
+    <div class="sidebar-footer">Temporada 2024–25</div>
+  </aside>
+
+  <!-- CONTENIDO -->
+  <main class="contenido">
+    <div class="topbar">
+      <span class="topbar-titulo">FICHA DE JUGADOR</span>
+      <div class="topbar-acciones">
+        <button class="btn btn-outline btn-sm" onclick="document.getElementById('panel-lista').style.display = document.getElementById('panel-lista').style.display === 'none' ? 'block' : 'none'">👥 Ver plantel</button>
+        <button class="btn btn-primary btn-sm">✏️ Editar ficha</button>
+      </div>
+    </div>
+
+    <div class="page-body">
+
+      <!-- Selector plantel (colapsable) -->
+      <div id="panel-lista" class="card mb-24 fade-in" style="display:none;">
+        <div class="seccion-titulo">Plantel Completo</div>
+        <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap:10px;">
+          <div class="btn btn-ghost" style="justify-content:flex-start; gap:10px; padding:10px 14px; cursor:pointer; border-color:var(--rojo);">
+            <span class="pill-numero">9</span>
+            <div>
+              <div class="font-cond" style="font-size:13px; font-weight:700; letter-spacing:1px; color:var(--blanco)">L. FERREYRA</div>
+              <div class="text-xs text-gris">Delantero</div>
+            </div>
+          </div>
+          <div class="btn btn-ghost" style="justify-content:flex-start; gap:10px; padding:10px 14px; cursor:pointer;">
+            <span class="pill-numero" style="background:var(--gris-borde)">10</span>
+            <div>
+              <div class="font-cond" style="font-size:13px; font-weight:700; letter-spacing:1px; color:var(--blanco)">M. SUÁREZ</div>
+              <div class="text-xs text-gris">Mediocampista</div>
+            </div>
+          </div>
+          <div class="btn btn-ghost" style="justify-content:flex-start; gap:10px; padding:10px 14px; cursor:pointer;">
+            <span class="pill-numero" style="background:var(--gris-borde)">1</span>
+            <div>
+              <div class="font-cond" style="font-size:13px; font-weight:700; letter-spacing:1px; color:var(--blanco)">C. ROMERO</div>
+              <div class="text-xs text-gris">Arquero</div>
+            </div>
+          </div>
+          <div class="btn btn-ghost" style="justify-content:flex-start; gap:10px; padding:10px 14px; cursor:pointer;">
+            <span class="pill-numero" style="background:var(--gris-borde)">4</span>
+            <div>
+              <div class="font-cond" style="font-size:13px; font-weight:700; letter-spacing:1px; color:var(--blanco)">A. VEGA</div>
+              <div class="text-xs text-gris">Defensor</div>
+            </div>
+          </div>
+          <div class="btn btn-ghost" style="justify-content:flex-start; gap:10px; padding:10px 14px; cursor:pointer;">
+            <span class="pill-numero" style="background:var(--gris-borde)">11</span>
+            <div>
+              <div class="font-cond" style="font-size:13px; font-weight:700; letter-spacing:1px; color:var(--blanco)">R. PÁEZ</div>
+              <div class="text-xs text-gris">Extremo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ficha principal -->
+      <div class="grid-32 fade-in-2">
+
+        <!-- Columna izquierda: Datos personales -->
+        <div style="display:flex; flex-direction:column; gap:20px;">
+
+          <!-- Perfil visual -->
+          <div class="card card-roja" style="text-align:center; padding:32px 24px;">
+            <div class="avatar-xl" style="margin: 0 auto 16px; font-size:56px; background:linear-gradient(135deg, var(--rojo), var(--rojo-oscuro));">
+              ⚽
+            </div>
+            <div style="font-family:var(--font-titulo); font-size:28px; letter-spacing:3px; color:var(--blanco-puro); margin-bottom:4px;">
+              LUCIANO FERREYRA
+            </div>
+            <div class="text-gris font-cond tracking uppercase text-xs mb-16">Delantero Centro</div>
+            <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+              <span class="badge badge-rojo">⚽ #9</span>
+              <span class="badge badge-verde">Activo</span>
+              <span class="badge badge-amarillo">⭐ Capitán</span>
+            </div>
+          </div>
+
+          <!-- Datos personales -->
+          <div class="card">
+            <div class="seccion-titulo">Datos Personales</div>
+            <div style="display:flex; flex-direction:column; gap:14px;">
+              <div class="flex-between">
+                <span class="text-xs text-gris font-cond tracking uppercase">Fecha de nacimiento</span>
+                <span class="font-cond" style="font-size:14px;">14 / 03 / 1998</span>
+              </div>
+              <div class="flex-between">
+                <span class="text-xs text-gris font-cond tracking uppercase">Edad</span>
+                <span class="font-cond" style="font-size:14px;">27 años</span>
+              </div>
+              <div class="flex-between">
+                <span class="text-xs text-gris font-cond tracking uppercase">Nacionalidad</span>
+                <span class="font-cond" style="font-size:14px;">Argentina 🇦🇷</span>
+              </div>
+              <div class="flex-between">
+                <span class="text-xs text-gris font-cond tracking uppercase">DNI</span>
+                <span class="font-cond" style="font-size:14px;">38.441.222</span>
+              </div>
+              <div class="flex-between">
+                <span class="text-xs text-gris font-cond tracking uppercase">Contacto</span>
+                <span class="font-cond" style="font-size:14px;">+54 11 4523-8800</span>
+              </div>
+              <div class="flex-between">
+                <span class="text-xs text-gris font-cond tracking uppercase">Email</span>
+                <span class="font-cond" style="font-size:13px;">l.ferreyra@resaka.com</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Trayectoria -->
+          <div class="card">
+            <div class="seccion-titulo">Trayectoria</div>
+            <div style="display:flex; flex-direction:column; gap:12px;">
+              <div style="border-left:2px solid var(--rojo); padding-left:12px;">
+                <div class="font-cond text-blanco" style="font-size:14px; font-weight:700;">Dep. Resaka</div>
+                <div class="text-xs text-gris font-cond">2022 – Presente · Titular</div>
+              </div>
+              <div style="border-left:2px solid var(--gris-borde); padding-left:12px;">
+                <div class="font-cond text-blanco" style="font-size:14px; font-weight:700;">FC Viento Norte</div>
+                <div class="text-xs text-gris font-cond">2019 – 2022 · Cedido</div>
+              </div>
+              <div style="border-left:2px solid var(--gris-borde); padding-left:12px;">
+                <div class="font-cond text-blanco" style="font-size:14px; font-weight:700;">Atlético Sur (Inferiores)</div>
+                <div class="text-xs text-gris font-cond">2015 – 2019 · Formación</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna derecha: Estadísticas -->
+        <div style="display:flex; flex-direction:column; gap:20px;">
+
+          <!-- Stats de temporada -->
+          <div class="card">
+            <div class="seccion-titulo">Estadísticas — Temporada 2024/25</div>
+            <div class="stat-grid" style="grid-template-columns: repeat(3,1fr);">
+              <div class="stat-card">
+                <div class="stat-icono">⚽</div>
+                <div class="stat-valor">18</div>
+                <div class="stat-label">Goles</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icono">🎯</div>
+                <div class="stat-valor">11</div>
+                <div class="stat-label">Asistencias</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icono">📋</div>
+                <div class="stat-valor">29</div>
+                <div class="stat-label">Partidos</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icono">⏱️</div>
+                <div class="stat-valor">2,480</div>
+                <div class="stat-label">Minutos</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icono">🟡</div>
+                <div class="stat-valor">3</div>
+                <div class="stat-label">Amarillas</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icono">🔴</div>
+                <div class="stat-valor">0</div>
+                <div class="stat-label">Rojas</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Habilidades -->
+          <div class="card">
+            <div class="seccion-titulo">Atributos Técnicos</div>
+            <div style="display:flex; flex-direction:column; gap:14px;">
+              <div>
+                <div class="flex-between mb-8">
+                  <span class="text-xs font-cond tracking uppercase text-gris">Definición</span>
+                  <span class="font-cond text-blanco">92</span>
+                </div>
+                <div class="barra-wrap"><div class="barra-fill verde" style="width:92%"></div></div>
+              </div>
+              <div>
+                <div class="flex-between mb-8">
+                  <span class="text-xs font-cond tracking uppercase text-gris">Velocidad</span>
+                  <span class="font-cond text-blanco">85</span>
+                </div>
+                <div class="barra-wrap"><div class="barra-fill azul" style="width:85%"></div></div>
+              </div>
+              <div>
+                <div class="flex-between mb-8">
+                  <span class="text-xs font-cond tracking uppercase text-gris">Técnica</span>
+                  <span class="font-cond text-blanco">79</span>
+                </div>
+                <div class="barra-wrap"><div class="barra-fill" style="width:79%"></div></div>
+              </div>
+              <div>
+                <div class="flex-between mb-8">
+                  <span class="text-xs font-cond tracking uppercase text-gris">Juego aéreo</span>
+                  <span class="font-cond text-blanco">71</span>
+                </div>
+                <div class="barra-wrap"><div class="barra-fill amarillo" style="width:71%"></div></div>
+              </div>
+              <div>
+                <div class="flex-between mb-8">
+                  <span class="text-xs font-cond tracking uppercase text-gris">Físico</span>
+                  <span class="font-cond text-blanco">83</span>
+                </div>
+                <div class="barra-wrap"><div class="barra-fill" style="width:83%; background:var(--dorado)"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Características físicas -->
+          <div class="card">
+            <div class="seccion-titulo">Características</div>
+            <div class="grid-2">
+              <div class="flex-between">
+                <span class="text-xs text-gris font-cond tracking uppercase">Altura</span>
+                <span class="font-cond">1,82 m</span>
+              </div>
+              <div class="flex-between">
+                <span class="text-xs text-gris font-cond tracking uppercase">Peso</span>
+                <span class="font-cond">78 kg</span>
+              </div>
+              <div class="flex-between">
+                <span class="text-xs text-gris font-cond tracking uppercase">Pie hábil</span>
+                <span class="font-cond">Derecho</span>
+              </div>
+              <div class="flex-between">
+                <span class="text-xs text-gris font-cond tracking uppercase">Posición</span>
+                <span class="font-cond">DC / Extremo</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notas del cuerpo técnico -->
+          <div class="card">
+            <div class="seccion-titulo">Notas del Cuerpo Técnico</div>
+            <p class="text-gris" style="font-size:14px; line-height:1.7;">
+              Jugador referente del equipo. Excelente desempeño en la presión alta y en situaciones de uno contra uno. 
+              Se recomienda mayor participación en la circulación en campo propio. 
+              Recuperación de lesión de rodilla derecha completada en marzo 2025.
+            </p>
+            <div class="divider"></div>
+            <div class="flex-between">
+              <span class="text-xs text-gris font-cond">Actualizado: 10/05/2025 · Prof. Ramírez</span>
+              <button class="btn btn-ghost btn-sm">Editar nota</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inventario — Deportivo Resaka</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-escudo">DR</div>
+      <div class="brand-nombre">DEPORTIVO<br>RESAKA</div>
+      <div class="brand-sub">Sistema de Gestión</div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-seccion">Principal</div>
+      <a href="index.html"><span class="nav-icono">📊</span><span>Dashboard</span></a>
+      <a href="inventario.html" class="activo"><span class="nav-icono">📦</span><span>Inventario</span></a>
+      <a href="perfil.html"><span class="nav-icono">👤</span><span>Ficha Jugador</span></a>
+      <a href="configuracion.html"><span class="nav-icono">⚙️</span><span>Configuración</span></a>
+      <div class="nav-seccion">Gestión</div>
+      <a href="calendario.html"><span class="nav-icono">📅</span><span>Calendario</span></a>
+      <a href="reservas.html"><span class="nav-icono">🎟️</span><span>Reservas</span></a>
+      <a href="historial.html"><span class="nav-icono">📋</span><span>Historial</span></a>
+      <a href="galeria.html"><span class="nav-icono">🏆</span><span>Galería</span></a>
+    </nav>
+    <div class="sidebar-footer">Temporada 2024–25</div>
+  </aside>
+
+  <!-- CONTENIDO -->
+  <main class="contenido">
+    <div class="topbar">
+      <span class="topbar-titulo">INVENTARIO</span>
+      <div class="topbar-acciones">
+        <span class="topbar-fecha">Control de Stock</span>
+        <button class="btn btn-primary btn-sm" onclick="document.getElementById('modal-add').style.display='flex'">+ Agregar Item</button>
+      </div>
+    </div>
+
+    <div class="page-hero" data-bg-text="STOCK">
+      <div class="page-titulo fade-in">CONTROL DE STOCK</div>
+      <div class="page-subtitulo fade-in-1">Equipamiento e indumentaria del club</div>
+    </div>
+
+    <div class="page-body">
+
+      <!-- Resumen stock -->
+      <div class="stat-grid fade-in-2">
+        <div class="stat-card">
+          <div class="stat-icono">📦</div>
+          <div class="stat-valor">142</div>
+          <div class="stat-label">Items en Stock</div>
+          <div class="stat-delta delta-pos">↑ Stock normal</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icono">⚠️</div>
+          <div class="stat-valor">4</div>
+          <div class="stat-label">Bajo Stock</div>
+          <div class="stat-delta delta-neg">↓ Requiere atención</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icono">✅</div>
+          <div class="stat-valor">18</div>
+          <div class="stat-label">Categorías</div>
+          <div class="stat-delta">Equipamiento completo</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icono">🔄</div>
+          <div class="stat-valor">7</div>
+          <div class="stat-label">Pedidos Activos</div>
+          <div class="stat-delta delta-pos">↑ En camino</div>
+        </div>
+      </div>
+
+      <!-- Filtros -->
+      <div class="card mb-24 fade-in-3">
+        <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+          <input type="text" placeholder="🔍  Buscar item..." style="max-width:260px;" id="buscador" oninput="filtrarTabla()" />
+          <select id="filtroCategoria" onchange="filtrarTabla()">
+            <option value="">Todas las categorías</option>
+            <option>Indumentaria</option>
+            <option>Calzado</option>
+            <option>Pelotas</option>
+            <option>Equipamiento</option>
+            <option>Médico</option>
+          </select>
+          <select id="filtroEstado" onchange="filtrarTabla()">
+            <option value="">Todos los estados</option>
+            <option>Disponible</option>
+            <option>Bajo Stock</option>
+            <option>Sin Stock</option>
+          </select>
+          <button class="btn btn-ghost btn-sm" onclick="limpiarFiltros()">✕ Limpiar</button>
+        </div>
+      </div>
+
+      <!-- Tabla de inventario -->
+      <div class="card fade-in-4">
+        <div class="seccion-titulo">Listado de Equipamiento</div>
+        <div class="tabla-wrapper">
+          <table id="tablaInventario">
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Item</th>
+                <th>Categoría</th>
+                <th>Cantidad</th>
+                <th>Mínimo</th>
+                <th>Talla / Tipo</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-cat="Indumentaria" data-estado="Disponible">
+                <td class="td-label">IND-001</td>
+                <td><strong>Camiseta Titular</strong></td>
+                <td><span class="badge badge-azul">Indumentaria</span></td>
+                <td>32</td><td>10</td><td>S / M / L / XL</td>
+                <td><span class="badge badge-verde">Disponible</span></td>
+                <td><button class="btn btn-ghost btn-sm">Editar</button></td>
+              </tr>
+              <tr data-cat="Indumentaria" data-estado="Disponible">
+                <td class="td-label">IND-002</td>
+                <td><strong>Camiseta Alternativa</strong></td>
+                <td><span class="badge badge-azul">Indumentaria</span></td>
+                <td>28</td><td>10</td><td>S / M / L / XL</td>
+                <td><span class="badge badge-verde">Disponible</span></td>
+                <td><button class="btn btn-ghost btn-sm">Editar</button></td>
+              </tr>
+              <tr data-cat="Indumentaria" data-estado="Bajo Stock">
+                <td class="td-label">IND-003</td>
+                <td><strong>Short de Juego</strong></td>
+                <td><span class="badge badge-azul">Indumentaria</span></td>
+                <td>8</td><td>10</td><td>M / L</td>
+                <td><span class="badge badge-amarillo">Bajo Stock</span></td>
+                <td><button class="btn btn-ghost btn-sm">Editar</button></td>
+              </tr>
+              <tr data-cat="Pelotas" data-estado="Disponible">
+                <td class="td-label">PEL-001</td>
+                <td><strong>Pelota Oficial N°5</strong></td>
+                <td><span class="badge badge-verde">Pelotas</span></td>
+                <td>15</td><td>5</td><td>Nº 5</td>
+                <td><span class="badge badge-verde">Disponible</span></td>
+                <td><button class="btn btn-ghost btn-sm">Editar</button></td>
+              </tr>
+              <tr data-cat="Pelotas" data-estado="Bajo Stock">
+                <td class="td-label">PEL-002</td>
+                <td><strong>Pelota de Entrenamiento</strong></td>
+                <td><span class="badge badge-verde">Pelotas</span></td>
+                <td>4</td><td>8</td><td>Nº 5</td>
+                <td><span class="badge badge-amarillo">Bajo Stock</span></td>
+                <td><button class="btn btn-ghost btn-sm">Editar</button></td>
+              </tr>
+              <tr data-cat="Calzado" data-estado="Disponible">
+                <td class="td-label">CAL-001</td>
+                <td><strong>Botines Titular</strong></td>
+                <td><span class="badge badge-amarillo">Calzado</span></td>
+                <td>22</td><td>10</td><td>38–44</td>
+                <td><span class="badge badge-verde">Disponible</span></td>
+                <td><button class="btn btn-ghost btn-sm">Editar</button></td>
+              </tr>
+              <tr data-cat="Equipamiento" data-estado="Disponible">
+                <td class="td-label">EQP-001</td>
+                <td><strong>Conos de Entrenamiento</strong></td>
+                <td><span class="badge badge-gris">Equipamiento</span></td>
+                <td>60</td><td>20</td><td>Estándar</td>
+                <td><span class="badge badge-verde">Disponible</span></td>
+                <td><button class="btn btn-ghost btn-sm">Editar</button></td>
+              </tr>
+              <tr data-cat="Equipamiento" data-estado="Bajo Stock">
+                <td class="td-label">EQP-002</td>
+                <td><strong>Pecheras de Entrenamiento</strong></td>
+                <td><span class="badge badge-gris">Equipamiento</span></td>
+                <td>6</td><td>15</td><td>Única</td>
+                <td><span class="badge badge-amarillo">Bajo Stock</span></td>
+                <td><button class="btn btn-ghost btn-sm">Editar</button></td>
+              </tr>
+              <tr data-cat="Médico" data-estado="Sin Stock">
+                <td class="td-label">MED-001</td>
+                <td><strong>Vendas Elásticas</strong></td>
+                <td><span class="badge badge-rojo">Médico</span></td>
+                <td>0</td><td>20</td><td>5cm / 10cm</td>
+                <td><span class="badge badge-rojo">Sin Stock</span></td>
+                <td><button class="btn btn-ghost btn-sm">Editar</button></td>
+              </tr>
+              <tr data-cat="Equipamiento" data-estado="Disponible">
+                <td class="td-label">EQP-003</td>
+                <td><strong>Arcos de Entrenamiento</strong></td>
+                <td><span class="badge badge-gris">Equipamiento</span></td>
+                <td>4</td><td>2</td><td>Plegable</td>
+                <td><span class="badge badge-verde">Disponible</span></td>
+                <td><button class="btn btn-ghost btn-sm">Editar</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mt-16 flex-between">
+          <span class="text-gris text-xs font-cond tracking uppercase">10 items mostrados</span>
+          <div class="flex gap-8">
+            <button class="btn btn-ghost btn-sm">← Anterior</button>
+            <button class="btn btn-ghost btn-sm">Siguiente →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Modal agregar item -->
+<div id="modal-add" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:999; align-items:center; justify-content:center;">
+  <div class="card" style="width:500px; max-width:90vw; max-height:90vh; overflow-y:auto; border-color:var(--rojo);">
+    <div class="flex-between mb-24">
+      <h2 style="font-family:var(--font-titulo); font-size:22px; letter-spacing:2px;">AGREGAR ITEM</h2>
+      <button class="btn btn-ghost btn-sm" onclick="document.getElementById('modal-add').style.display='none'">✕ Cerrar</button>
+    </div>
+    <div class="form-grid form-grid-2">
+      <div class="form-grupo">
+        <label>Código</label>
+        <input type="text" placeholder="EJ: IND-010" />
+      </div>
+      <div class="form-grupo">
+        <label>Nombre del Item</label>
+        <input type="text" placeholder="Nombre del producto" />
+      </div>
+      <div class="form-grupo">
+        <label>Categoría</label>
+        <select>
+          <option>Indumentaria</option>
+          <option>Calzado</option>
+          <option>Pelotas</option>
+          <option>Equipamiento</option>
+          <option>Médico</option>
+        </select>
+      </div>
+      <div class="form-grupo">
+        <label>Talla / Tipo</label>
+        <input type="text" placeholder="S/M/L o descripción" />
+      </div>
+      <div class="form-grupo">
+        <label>Cantidad Actual</label>
+        <input type="number" min="0" placeholder="0" />
+      </div>
+      <div class="form-grupo">
+        <label>Stock Mínimo</label>
+        <input type="number" min="0" placeholder="0" />
+      </div>
+      <div class="form-grupo full">
+        <label>Notas</label>
+        <textarea placeholder="Observaciones del item..." style="min-height:70px;"></textarea>
+      </div>
+    </div>
+    <div class="form-acciones mt-16">
+      <button class="btn btn-outline" onclick="document.getElementById('modal-add').style.display='none'">Cancelar</button>
+      <button class="btn btn-primary">Guardar Item</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function filtrarTabla() {
+  const texto = document.getElementById('buscador').value.toLowerCase();
+  const cat = document.getElementById('filtroCategoria').value;
+  const estado = document.getElementById('filtroEstado').value;
+  const filas = document.querySelectorAll('#tablaInventario tbody tr');
+  filas.forEach(f => {
+    const txt = f.textContent.toLowerCase().includes(texto);
+    const c = !cat || f.dataset.cat === cat;
+    const e = !estado || f.dataset.estado === estado;
+    f.style.display = (txt && c && e) ? '' : 'none';
+  });
+}
+function limpiarFiltros() {
+  document.getElementById('buscador').value = '';
+  document.getElementById('filtroCategoria').value = '';
+  document.getElementById('filtroEstado').value = '';
+  filtrarTabla();
+}
+</script>
+</body>
+</html>
