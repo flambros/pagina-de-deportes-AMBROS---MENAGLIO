@@ -1,0 +1,322 @@
+[8:27 p. m., 15/5/2026] fran ambros: <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reservas — Deportivo Resaka</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="wrapper">
+ 
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-escudo">DR</div>
+      <div class="brand-nombre">DEPORTIVO<br>RESAKA</div>
+      <div class="brand-sub">Sistema de Gestión</div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-seccion">Principal</div>
+      <a href="index.html"><span class="nav-icono">📊</span><span>Dashboard</span></a>
+      <a href="inventario.html"><span class="nav-icono">📦</spa…
+[8:28 p. m., 15/5/2026] fran ambros: 7 - Historial de movimientos:
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Historial — Deportivo Resaka</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="wrapper">
+ 
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-escudo">DR</div>
+      <div class="brand-nombre">DEPORTIVO<br>RESAKA</div>
+      <div class="brand-sub">Sistema de Gestión</div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-seccion">Principal</div>
+      <a href="index.html"><span class="nav-icono">📊</span><span>Dashboard</span></a>
+      <a href="inventario.html"><span class="nav-icono">📦</span><span>Inventario</span></a>
+      <a href="perfil.html"><span class="nav-icono">👤</span><span>Ficha Jugador</span></a>
+      <a href="configuracion.html"><span class="nav-icono">⚙️</span><span>Configuración</span></a>
+      <div class="nav-seccion">Gestión</div>
+      <a href="calendario.html"><span class="nav-icono">📅</span><span>Calendario</span></a>
+      <a href="reservas.html"><span class="nav-icono">🎟️</span><span>Reservas</span></a>
+      <a href="historial.html" class="activo"><span class="nav-icono">📋</span><span>Historial</span></a>
+      <a href="galeria.html"><span class="nav-icono">🏆</span><span>Galería</span></a>
+    </nav>
+    <div class="sidebar-footer">Temporada 2024–25</div>
+  </aside>
+ 
+  <!-- CONTENIDO -->
+  <main class="contenido">
+    <div class="topbar">
+      <span class="topbar-titulo">HISTORIAL</span>
+      <div class="topbar-acciones">
+        <button class="btn btn-ghost btn-sm">📤 Exportar</button>
+        <button class="btn btn-primary btn-sm">+ Registrar movimiento</button>
+      </div>
+    </div>
+ 
+    <div class="page-hero" data-bg-text="HISTORIAL">
+      <div class="page-titulo fade-in">HISTORIAL DE MOVIMIENTOS</div>
+      <div class="page-subtitulo fade-in-1">Partidos · Reservas · Transferencias · Stock</div>
+    </div>
+ 
+    <div class="page-body">
+ 
+      <!-- Resumen -->
+      <div class="stat-grid fade-in-2">
+        <div class="stat-card">
+          <div class="stat-icono">⚽</div>
+          <div class="stat-valor">34</div>
+          <div class="stat-label">Partidos registrados</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icono">🎟️</div>
+          <div class="stat-valor">89</div>
+          <div class="stat-label">Reservas totales</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icono">🔄</div>
+          <div class="stat-valor">23</div>
+          <div class="stat-label">Movimientos de stock</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icono">👤</div>
+          <div class="stat-valor">5</div>
+          <div class="stat-label">Altas de jugadores</div>
+        </div>
+      </div>
+ 
+      <!-- Filtros -->
+      <div class="card mb-24 fade-in-3">
+        <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+          <input type="text" placeholder="🔍  Buscar en historial..." style="max-width:260px;" id="buscHist" oninput="filtrarHist()" />
+          <select id="filtroTipo" onchange="filtrarHist()">
+            <option value="">Todos los tipos</option>
+            <option value="partido">Partido</option>
+            <option value="reserva">Reserva</option>
+            <option value="stock">Stock</option>
+            <option value="jugador">Jugador</option>
+          </select>
+          <input type="date" id="filtroDesde" onchange="filtrarHist()" title="Desde" />
+          <input type="date" id="filtroHasta" onchange="filtrarHist()" title="Hasta" />
+          <button class="btn btn-ghost btn-sm" onclick="limpiarHist()">✕ Limpiar</button>
+        </div>
+      </div>
+ 
+      <!-- Timeline / Historial -->
+      <div class="grid-23 fade-in-4">
+ 
+        <!-- Lista principal -->
+        <div>
+          <div class="card">
+            <div class="seccion-titulo">Registro de Actividad</div>
+            <div class="tabla-wrapper">
+              <table id="tablaHistorial">
+                <thead>
+                  <tr>
+                    <th>Fecha</th>
+                    <th>Tipo</th>
+                    <th>Descripción</th>
+                    <th>Responsable</th>
+                    <th>Resultado / Estado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-tipo="partido">
+                    <td class="td-label">15/05/2025</td>
+                    <td><span class="badge badge-rojo">Partido</span></td>
+                    <td><strong>Dep. Resaka vs FC Viento Norte</strong><br><span class="text-xs text-gris">Local · Fecha 12 · Liga Regional</span></td>
+                    <td class="td-label">C. Ramírez</td>
+                    <td><span class="badge badge-verde">Victoria 3 – 1</span></td>
+                  </tr>
+                  <tr data-tipo="reserva">
+                    <td class="td-label">14/05/2025</td>
+                    <td><span class="badge badge-azul">Reserva</span></td>
+                    <td><strong>Cancha Principal — Entrenamiento</strong><br><span class="text-xs text-gris">09:00 – 11:00 hs · 1ª División</span></td>
+                    <td class="td-label">S. López</td>
+                    <td><span class="badge badge-verde">Completada</span></td>
+                  </tr>
+                  <tr data-tipo="stock">
+                    <td class="td-label">13/05/2025</td>
+                    <td><span class="badge badge-gris">Stock</span></td>
+                    <td><strong>Ingreso de Pelotas N°5 (x10)</strong><br><span class="text-xs text-gris">Stock actualizado: 15 unidades</span></td>
+                    <td class="td-label">M. Heredia</td>
+                    <td><span class="badge badge-verde">Registrado</span></td>
+                  </tr>
+                  <tr data-tipo="jugador">
+                    <td class="td-label">12/05/2025</td>
+                    <td><span class="badge badge-amarillo">Jugador</span></td>
+                    <td><strong>Alta: Gonzalo Ríos — Defensor #5</strong><br><span class="text-xs text-gris">Incorporación desde Atlético Sur</span></td>
+                    <td class="td-label">C. Ramírez</td>
+                    <td><span class="badge badge-verde">Activo</span></td>
+                  </tr>
+                  <tr data-tipo="partido">
+                    <td class="td-label">05/05/2025</td>
+                    <td><span class="badge badge-rojo">Partido</span></td>
+                    <td><strong>Dep. Resaka vs Atlético Sur</strong><br><span class="text-xs text-gris">Visitante · Fecha 11 · Liga Regional</span></td>
+                    <td class="td-label">C. Ramírez</td>
+                    <td><span class="badge badge-amarillo">Empate 1 – 1</span></td>
+                  </tr>
+                  <tr data-tipo="reserva">
+                    <td class="td-label">04/05/2025</td>
+                    <td><span class="badge badge-azul">Reserva</span></td>
+                    <td><strong>Salón — Reunión de Comisión Directiva</strong><br><span class="text-xs text-gris">19:00 – 21:00 hs · 12 asistentes</span></td>
+                    <td class="td-label">S. López</td>
+                    <td><span class="badge badge-verde">Completada</span></td>
+                  </tr>
+                  <tr data-tipo="stock">
+                    <td class="td-label">01/05/2025</td>
+                    <td><span class="badge badge-gris">Stock</span></td>
+                    <td><strong>Baja: Pecheras deterioradas (x3)</strong><br><span class="text-xs text-gris">Motivo: Desgaste. Stock: 6 unidades</span></td>
+                    <td class="td-label">M. Heredia</td>
+                    <td><span class="badge badge-rojo">Stock bajo</span></td>
+                  </tr>
+                  <tr data-tipo="partido">
+                    <td class="td-label">28/04/2025</td>
+                    <td><span class="badge badge-rojo">Partido</span></td>
+                    <td><strong>Dep. Resaka vs Real Pampa FC</strong><br><span class="text-xs text-gris">Local · Fecha 10 · Liga Regional</span></td>
+                    <td class="td-label">C. Ramírez</td>
+                    <td><span class="badge badge-verde">Victoria 4 – 0</span></td>
+                  </tr>
+                  <tr data-tipo="jugador">
+                    <td class="td-label">25/04/2025</td>
+                    <td><span class="badge badge-amarillo">Jugador</span></td>
+                    <td><strong>Lesión: L. Ferreyra — Rodilla derecha</strong><br><span class="text-xs text-gris">Baja temporal. Alta médica: 10/05/2025</span></td>
+                    <td class="td-label">Dr. Sosa</td>
+                    <td><span class="badge badge-verde">Recuperado</span></td>
+                  </tr>
+                  <tr data-tipo="reserva">
+                    <td class="td-label">22/04/2025</td>
+                    <td><span class="badge badge-azul">Reserva</span></td>
+                    <td><strong>Cancha Principal — Amistoso Sub-17</strong><br><span class="text-xs text-gris">16:00 – 18:00 hs · Formativas</span></td>
+                    <td class="td-label">S. López</td>
+                    <td><span class="badge badge-verde">Completada</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="mt-16 flex-between">
+              <span class="text-gris text-xs font-cond tracking uppercase" id="cont-filas">10 registros mostrados</span>
+              <div class="flex gap-8">
+                <button class="btn btn-ghost btn-sm">← Anterior</button>
+                <button class="btn btn-ghost btn-sm">Siguiente →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+ 
+        <!-- Panel lateral: actividad reciente y resumen -->
+        <div style="display:flex; flex-direction:column; gap:20px;">
+          <div class="card">
+            <div class="seccion-titulo">Resultados — Temporada</div>
+            <div style="display:flex; flex-direction:column; gap:10px;">
+              <div class="flex-between">
+                <span class="text-xs font-cond tracking uppercase text-gris">Victorias</span>
+                <span class="font-cond text-verde">21</span>
+              </div>
+              <div class="barra-wrap mb-8"><div class="barra-fill verde" style="width:62%"></div></div>
+              <div class="flex-between">
+                <span class="text-xs font-cond tracking uppercase text-gris">Empates</span>
+                <span class="font-cond text-amarillo">7</span>
+              </div>
+              <div class="barra-wrap mb-8"><div class="barra-fill amarillo" style="width:21%"></div></div>
+              <div class="flex-between">
+                <span class="text-xs font-cond tracking uppercase text-gris">Derrotas</span>
+                <span class="font-cond text-rojo">6</span>
+              </div>
+              <div class="barra-wrap"><div class="barra-fill" style="width:17%"></div></div>
+            </div>
+          </div>
+ 
+          <div class="card">
+            <div class="seccion-titulo">Últimas Acciones</div>
+            <div style="display:flex; flex-direction:column; gap:10px;">
+              <div style="display:flex; gap:10px; align-items:flex-start;">
+                <div style="width:8px;height:8px;border-radius:50%;background:var(--rojo);flex-shrink:0;margin-top:5px;"></div>
+                <div>
+                  <div class="font-cond text-blanco" style="font-size:13px;">Partido registrado</div>
+                  <div class="text-xs text-gris font-cond">Hace 2 horas</div>
+                </div>
+              </div>
+              <div style="display:flex; gap:10px; align-items:flex-start;">
+                <div style="width:8px;height:8px;border-radius:50%;background:var(--azul);flex-shrink:0;margin-top:5px;"></div>
+                <div>
+                  <div class="font-cond text-blanco" style="font-size:13px;">Reserva confirmada</div>
+                  <div class="text-xs text-gris font-cond">Hace 5 horas</div>
+                </div>
+              </div>
+              <div style="display:flex; gap:10px; align-items:flex-start;">
+                <div style="width:8px;height:8px;border-radius:50%;background:var(--verde);flex-shrink:0;margin-top:5px;"></div>
+                <div>
+                  <div class="font-cond text-blanco" style="font-size:13px;">Stock actualizado</div>
+                  <div class="text-xs text-gris font-cond">Ayer, 14:20 hs</div>
+                </div>
+              </div>
+              <div style="display:flex; gap:10px; align-items:flex-start;">
+                <div style="width:8px;height:8px;border-radius:50%;background:var(--amarillo);flex-shrink:0;margin-top:5px;"></div>
+                <div>
+                  <div class="font-cond text-blanco" style="font-size:13px;">Alta jugador registrada</div>
+                  <div class="text-xs text-gris font-cond">12/05/2025</div>
+                </div>
+              </div>
+            </div>
+          </div>
+ 
+          <div class="card">
+            <div class="seccion-titulo">Goles Temporada</div>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              <div class="flex-between">
+                <span class="text-xs font-cond tracking uppercase text-gris">Goles a favor</span>
+                <span class="font-cond text-verde" style="font-size:20px;">67</span>
+              </div>
+              <div class="flex-between">
+                <span class="text-xs font-cond tracking uppercase text-gris">Goles en contra</span>
+                <span class="font-cond text-rojo" style="font-size:20px;">23</span>
+              </div>
+              <div class="divider"></div>
+              <div class="flex-between">
+                <span class="text-xs font-cond tracking uppercase text-gris">Diferencia de gol</span>
+                <span class="font-cond text-dorado" style="font-size:20px;">+44</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+ 
+<script>
+function filtrarHist() {
+  const txt = document.getElementById('buscHist').value.toLowerCase();
+  const tipo = document.getElementById('filtroTipo').value;
+  const filas = document.querySelectorAll('#tablaHistorial tbody tr');
+  let visibles = 0;
+  filas.forEach(f => {
+    const matchTxt = !txt || f.textContent.toLowerCase().includes(txt);
+    const matchTipo = !tipo || f.dataset.tipo === tipo;
+    f.style.display = (matchTxt && matchTipo) ? '' : 'none';
+    if (matchTxt && matchTipo) visibles++;
+  });
+  document.getElementById('cont-filas').textContent = visibles + ' registros mostrados';
+}
+ 
+function limpiarHist() {
+  document.getElementById('buscHist').value = '';
+  document.getElementById('filtroTipo').value = '';
+  document.getElementById('filtroDesde').value = '';
+  document.getElementById('filtroHasta').value = '';
+  filtrarHist();
+}
+</script>
+</body>
+</html>
